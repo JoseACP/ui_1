@@ -1,0 +1,8 @@
+https://github.com/JoseACP/soa_api.git 
+
+Credenciales de administrador 
+correo:admin@admin.com   contraseña:admin1
+
+
+Credenciales de usuario 
+correo:yo@yo.com   contraseña:123456
