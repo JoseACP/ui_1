@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'; 
 import 'package:ui_1/services/firebase_service.dart';
+import 'package:flutter/cupertino.dart';
+
 
 
 
@@ -27,433 +29,317 @@ class _UserState extends State<User> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    backgroundColor: Color.fromARGB(238, 238, 125, 50),
       body: SafeArea(
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: SizedBox(height: 340, child: Stack(
+                child: SizedBox(child: Stack(
               children: [
                 Column(
+                  
                   children: [
                     Container(
-                      width: double.infinity,
-                      height: 300,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('images/waves.png'),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(200),
-                          bottomRight: Radius.circular(200),
-                        ),
-                      ),
-                      child: Stack(
-                        children: [
-                          Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  stepsFromFirebase != null ? stepsFromFirebase! : '💿',
-                                  style: TextStyle(
-                                    fontSize: 64,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 8.0),
-                                  child: Text(
-                                    'Steps',
-                                    style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w200,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          child: Icon(
+                            Icons.arrow_back,
+                            size: 30,
+                            color: const Color.fromARGB(255, 255, 255, 255),
                           ),
-                        ],
+                        ),
                       ),
                     ),
-                  ],
-                ),
-              ],
-            )),
-              ),
-              SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Daily goals',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 19,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text(
-                      'Open list >',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w200,
-                        fontSize: 17,
-                        color: Color.fromARGB(255, 214, 103, 11),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-                child: SizedBox(height: 10), // Espacio vertical entre los títulos y los círculos
-              ),
-              SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: SizedBox(
-                height: 150, // Ajusta la altura del contenedor de tus tarjetas de metas
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    // Tarjeta de "Meta Kilos"
-                    Row(
-                      children: [
-                        Container(
-                          height: 120,
-                          width: 180,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8.0),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 3,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            padding: EdgeInsets.all(16.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '5', // Reemplaza con tu meta de peso
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 44,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Cups',
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w200,
-                                        fontSize: 24,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Drinking goal',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                  ),
 
-                        SizedBox(width: 16.0), // Espacio horizontal entre los contenedores
-                        Container(
-                          height: 120,
-                          width: 180,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8.0),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 3,
-                                blurRadius: 5,
-                                offset: Offset(0, 3),
-                              ),
-                            ],
-                          ),
-                          padding: EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                  SizedBox(height: 40,),
+
+
+                  Container(
+                    height: 250,
+                    margin: EdgeInsets.only(top: 5, bottom: .1),
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30)
+                      ),
+                    ),
+                    child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Contenido de la tarjeta aquí //
+                        Padding(
+                          
+                          padding: EdgeInsets.only(top: 10, bottom: 15),
+                          child: Row(
+                            
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              Text(
+                                'Quantity (300gr)',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w200,
+                                ),
+                              ),
+                              Padding(padding: const EdgeInsets.only(top: 30),
+                              child: Row(
                                 children: [
                                   Text(
-                                    '7', // Reemplaza con tu meta de peso
+                                    "\$",
                                     style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 44,
                                       color: Colors.black,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Text(
-                                    ' Hours',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w200,
-                                      fontSize: 24,
-                                      color: Colors.black,
+                                  Container(
+                                    padding: EdgeInsets.all(3),
+                                    child: Text(
+                                      "19.99",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                              Text(
-                                'Sleeping goal',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                ),
                               ),
-                              
                             ],
-                          ),
-                        ),
-
-                        SizedBox(width: 16.0),
-                        Container(
-                          height: 120,
-                          width: 180,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8.0),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 3,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],
                             ),
-                            padding: EdgeInsets.all(16.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '70', // Reemplaza con tu meta de peso
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 44,
-                                        color: Colors.black,
-                                      ),
+                        ),
+                        Row(
+                          children: [
+                                  Container(
+                                    padding: EdgeInsets.all(3),
+                                    decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 250, 246, 240),
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow:[
+                                        BoxShadow(
+                                          color: const Color.fromARGB(255, 20, 1, 1).withOpacity(0.5),
+                                          spreadRadius: .5,
+                                          blurRadius: 1,
+                                          offset: Offset(0, 3),
+                                        )
+                                      ],
                                     ),
-                                    Text(
-                                      'kg',
+                                    child: Icon(
+                                        CupertinoIcons.minus,
+                                      )
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(horizontal: 10),
+                                    child: Text(
+                                      '1',
                                       style: TextStyle(
-                                        fontWeight: FontWeight.w200,
-                                        fontSize: 24,
-                                        color: Colors.black,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w300,
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Meta Peso',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 16,
-                                      color: Colors.black,
                                     ),
                                   ),
+                                  Container(
+                                    padding: EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 250, 246, 240),
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow:[
+                                        BoxShadow(
+                                          color: const Color.fromARGB(255, 20, 1, 1).withOpacity(0.5),
+                                          spreadRadius: .5,
+                                          blurRadius: 1,
+                                          offset: Offset(0, 3),
+                                        )
+                                      ],
+                                    ),
+                                    child: Icon(
+                                        CupertinoIcons.plus,
+                                      )
+                                  ),
+                                ],
+                        ),
+                        SizedBox(height: 40),
+                        Row(
+                          children: [
+                            Container(
+                              width: 300,
+                              height: 50,
+                              child: ElevatedButton.icon(
+                                onPressed: () {
+                                  // Lógica para agregar al carrito
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  primary: Color.fromARGB(235, 224, 151, 41),
+                                  onPrimary: Colors.black,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(25),
+                                  ),
                                 ),
-                              ],
+                                icon:
+                                Icon(
+                                  Icons.shopping_cart,
+                                  color: Colors.white,
+                                  
+                                ),
+                                label:
+                                Text(
+                                      'Add to Cart',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: const Color.fromARGB(255, 248, 248, 248),
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                      
+                                    ),
+                              ),
                             ),
-                          ),
+                            SizedBox(width: 10),
+                            Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                              size: 40,
+                            ),
+                          ],
+                        ),
                       ],
-                    )
+                    ),
+                    
+                  ),
 
-                  ],
-                  
-                ),
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-                  child: SizedBox(height: 10), // Espacio vertical entre círculos y las tarjetas de metas
-                ),
-                SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Last activity',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 19,
-                        color: Colors.black,
+                    Container(
+                    width: double.infinity,
+                    height: 600,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Título
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.shopping_bag_outlined,
+                                color: Colors.white,
+                                size: 31,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  'Cart',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w200,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 20), // Espacio entre el título y las secciones de productos
+
+                          // Primera sección de productos
+                          buildProductSection('images/fruits_b.png', 'amlo', '\$19.99', 3),
+
+                          // Segunda sección de productos
+                          buildProductSection('images/mango_b.png', 'Guayando', '\$29.99', 5),
+
+                          // Tercera sección de productos
+                          buildProductSection('images/nuts_b.png', 'babo', '\$39.99', 2),
+
+                          buildProductSection('images/yo.jpg', 'babo', '\$39.99', 2),
+
+                          // Puedes agregar más secciones de productos aquí según sea necesario
+                        ],
                       ),
                     ),
-                    Text(
-                      'See details >',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w200,
-                        fontSize: 17,
-                        color: Color.fromARGB(255, 214, 103, 11),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),SliverToBoxAdapter(
-                  child: SizedBox(height: 10), // Espacio vertical entre círculos y las tarjetas de metas
-                ),
-                SliverToBoxAdapter(
-                child: SizedBox(height: 10), // Espacio vertical entre los títulos y los círculos
-              ),
-              SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: SizedBox(
-                height: 150, // Ajusta la altura del contenedor de tus tarjetas de metas
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    // Tarjeta de "Meta Kilos"
-                   Row(
-  children: [
-    Container(
-      height: 160,
-      width: 360,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 3,
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      padding: EdgeInsets.all(16.0),
-      child: Row(
-        children: [
-          // Primera columna con formato especial
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              '5', // Reemplaza con tu número
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 44,
-                color: Colors.black,
-              ),
-            ),
-            Text(
-              'Cups',
-              style: TextStyle(
-                fontWeight: FontWeight.w200,
-                fontSize: 24,
-                color: Colors.black,
-              ),
-            ),
-          ],
-              ),
-              Container(
-          child: Text(
-            'Drinking goal',
-            style: TextStyle(
-              fontWeight: FontWeight.w300,
-              fontSize: 16,
-              color: Colors.black,
-            ),
-          ),
-              ),
-            ],
-          ),
-
-          // Separador entre las columnas
-          SizedBox(width: 16.0),
-
-          // Segunda columna con formato diferente
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              '7', // Reemplaza con tu número
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 44,
-                color: Colors.black,
-              ),
-            ),
-            Text(
-              'Hours',
-              style: TextStyle(
-                fontWeight: FontWeight.w200,
-                fontSize: 24,
-                color: Colors.black,
-              ),
-            ),
-          ],
-              ),
-              Text(
-          'Sleeping goal',
-          style: TextStyle(
-            fontWeight: FontWeight.w300,
-            fontSize: 16,
-            color: Colors.black,
-          ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    ),
-  ],
-)
+                  ),
 
                   ],
-                  
                 ),
-              ),
-            ),
-          ),
-
-
-                
-
-            
+              ],
+            )),
+              ),  
             ],
           )),
     );
   }
+  Widget buildProductSection(String imagePath, String productName, String price, int quantity) {
+  return Container(
+    padding: EdgeInsets.symmetric(vertical: 8),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        // Icono del producto
+        Image.asset(
+          imagePath,
+          width: 50,
+          height: 50,
+          fit: BoxFit.cover,
+        ),
+
+        // Detalles del producto
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Nombre del producto
+                Text(
+                  productName,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white,
+                  ),
+                ),
+
+                // Precio del producto
+                Text(
+                  price,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        // Cantidad del producto
+        Text(
+          'x$quantity',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
 
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ui_1/services/firebase_service.dart';
 
 
 class Home extends StatefulWidget {
@@ -22,33 +21,7 @@ class _HomeState extends State<Home> {
     super.initState();
 
     // Llama a getName() para obtener los datos de Firebase
-    getName().then((name) {
-      setState(() {
-        nameFromFirebase = name; // Asigna los datos de Firebase a la variable
-      });
-    });
-
-    // getSteps jala los pasos que ha dado el usuario
-    getDistance().then((distance) {
-      setState(() {
-        distanceFromFirebase = distance; // Asigna los datos de Firebase a la variable
-      });
-    });
-  
-
-  // getSteps jala los pasos que ha dado el usuario
-    getOcupation().then((ocupation) {
-      setState(() {
-        ocupationFromFirebase = ocupation; // Asigna los datos de Firebase a la variable
-      });
-    });
-
-    // getSteps jala los pasos que ha dado el usuario
-    getWeight().then((weight) {
-      setState(() {
-        weightFromFirebase = weight; // Asigna los datos de Firebase a la variable
-      });
-    });
+    
   }
  
   

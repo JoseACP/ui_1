@@ -23,7 +23,7 @@ class ItemPage extends StatelessWidget{
                     child: Icon(
                       Icons.arrow_back,
                       size: 30,
-                      color: Colors.black,
+                      color: const Color.fromARGB(255, 255, 255, 255),
                     ),
                   ),
                 ),
@@ -88,8 +88,8 @@ class ItemPage extends StatelessWidget{
               
 
               Container(
-                height: 200,
-                margin: EdgeInsets.only(top: 20, bottom: .1),
+                height: 250,
+                margin: EdgeInsets.only(top: 5, bottom: .1),
                 padding: EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -117,14 +117,15 @@ class ItemPage extends StatelessWidget{
                               fontWeight: FontWeight.w200,
                             ),
                           ),
-                          Row(
+                          Padding(padding: const EdgeInsets.only(top: 30),
+                          child: Row(
                             children: [
                               Text(
                                 "\$",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 25,
-                                  fontWeight: FontWeight.w400,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                               Container(
@@ -134,11 +135,12 @@ class ItemPage extends StatelessWidget{
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 25,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
                             ],
+                          ),
                           ),
                         ],
                         ),
@@ -190,38 +192,53 @@ class ItemPage extends StatelessWidget{
                                 child: Icon(
                                     CupertinoIcons.plus,
                                   )
-                              )
+                              ),
                             ],
                     ),
-                    // SizedBox(height: 1,),
-                    //              Container(
-                    //               width: 150,
-                    //               height: 50,
-                    //               child: ElevatedButton.icon(
-                    //                 onPressed: () {
-                    //                   // Lógica para agregar al carrito
-                    //                 },
-                    //                 style: ElevatedButton.styleFrom(
-                    //                   primary: Colors.white,
-                    //                   onPrimary: Colors.black,
-                    //                   shape: RoundedRectangleBorder(
-                    //                     borderRadius: BorderRadius.circular(25),
-                    //                   ),
-                    //                 ),
-                    //                 icon: Icon(
-                    //                   Icons.shopping_cart,
-                    //                   color: Colors.black,
-                    //                 ),
-                    //                 label: Expanded(
-                    //                   child: Center(
-                    //                     child: Text(
-                    //                       'Add to Cart',
-                    //                       textAlign: TextAlign.center,
-                    //                     ),
-                    //                   ),
-                    //                 ),
-                    //               ),
-                    //             ),
+                    SizedBox(height: 40),
+                    Row(
+                      children: [
+                        Container(
+                          width: 300,
+                          height: 50,
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              // Lógica para agregar al carrito
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(235, 224, 151, 41),
+                              onPrimary: Colors.black,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                            ),
+                            icon:
+                             Icon(
+                              Icons.shopping_cart,
+                              color: Colors.white,
+                              
+                            ),
+                            label:
+                            Text(
+                                  'Add to Cart',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(255, 248, 248, 248),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                  
+                                ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 40,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
                 
